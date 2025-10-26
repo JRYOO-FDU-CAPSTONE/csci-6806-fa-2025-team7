@@ -1,0 +1,18 @@
+gen_episodes:   0%|                                                          | 0/2848 [00:00<?, ?it/s]gen_episodes: 100%|██████████████████████████████████████████████| 2848/2848 [00:04<00:00, 640.12it/s]
+2025-10-24 06:03:14> /home/divyesh/miniconda/envs/cachelib-py-3.11/lib/python3.11/site-packages/lightgbm/engine.py:181: UserWarning: 'early_stopping_rounds' argument is deprecated and will be removed in a future release of LightGBM. Pass 'early_stopping()' callback via 'callbacks' argument instead.
+2025-10-24 06:03:19>   _log_warning("'early_stopping_rounds' argument is deprecated and will be removed in a future release of LightGBM. "
+2025-10-24 06:03:19> /home/divyesh/miniconda/envs/cachelib-py-3.11/lib/python3.11/site-packages/lightgbm/engine.py:239: UserWarning: 'verbose_eval' argument is deprecated and will be removed in a future release of LightGBM. Pass 'log_evaluation()' callback via 'callbacks' argument instead.
+2025-10-24 06:03:19>   _log_warning("'verbose_eval' argument is deprecated and will be removed in a future release of LightGBM. "
+2025-10-24 06:03:19> /home/divyesh/miniconda/envs/cachelib-py-3.11/lib/python3.11/site-packages/lightgbm/engine.py:181: UserWarning: 'early_stopping_rounds' argument is deprecated and will be removed in a future release of LightGBM. Pass 'early_stopping()' callback via 'callbacks' argument instead.
+2025-10-24 06:03:42>   _log_warning("'early_stopping_rounds' argument is deprecated and will be removed in a future release of LightGBM. "
+2025-10-24 06:03:42> /home/divyesh/miniconda/envs/cachelib-py-3.11/lib/python3.11/site-packages/lightgbm/engine.py:239: UserWarning: 'verbose_eval' argument is deprecated and will be removed in a future release of LightGBM. Pass 'log_evaluation()' callback via 'callbacks' argument instead.
+2025-10-24 06:03:42>   _log_warning("'verbose_eval' argument is deprecated and will be removed in a future release of LightGBM. "
+2025-10-24 06:03:42> /home/divyesh/Desktop/Baleen-FAST24/BCacheSim/episodic_analysis/train_utils.py:20: RuntimeWarning: divide by zero encountered in scalar divide
+2025-10-24 06:04:02>   ret['FN/FP'] = ret['FN'] / ret['FP']
+2025-10-24 06:04:02> /home/divyesh/Desktop/Baleen-FAST24/BCacheSim/episodic_analysis/train_utils.py:20: RuntimeWarning: divide by zero encountered in scalar divide
+2025-10-24 06:04:02>   ret['FN/FP'] = ret['FN'] / ret['FP']
+2025-10-24 06:04:02> /home/divyesh/miniconda/envs/cachelib-py-3.11/lib/python3.11/site-packages/lightgbm/engine.py:181: UserWarning: 'early_stopping_rounds' argument is deprecated and will be removed in a future release of LightGBM. Pass 'early_stopping()' callback via 'callbacks' argument instead.
+2025-10-24 06:04:16>   _log_warning("'early_stopping_rounds' argument is deprecated and will be removed in a future release of LightGBM. "
+2025-10-24 06:04:16> /home/divyesh/miniconda/envs/cachelib-py-3.11/lib/python3.11/site-packages/lightgbm/engine.py:239: UserWarning: 'verbose_eval' argument is deprecated and will be removed in a future release of LightGBM. Pass 'log_evaluation()' callback via 'callbacks' argument instead.
+2025-10-24 06:04:16>   _log_warning("'verbose_eval' argument is deprecated and will be removed in a future release of LightGBM. "
+2025-10-24 06:04:16> 
