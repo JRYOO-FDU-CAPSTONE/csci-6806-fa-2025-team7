@@ -1,1 +1,27 @@
-./tmp
+# ---- Ignore temp & cache directories ----
+tmp/
+__pycache__/
+*.pyc
+
+# ---- Ignore data traces (too large to push) ----
+data/tectonic/
+data/storage_0.1.tar.gz
+
+# ---- Ignore local run outputs ----
+runs/
+output/
+results/
+logs/
+
+# ---- Ignore virtual environments ----
+.venv/
+venv/
+env/
+*.env
+
+# ---- Ignore system / editor files ----
+.DS_Store
+*.swp
+*.swo
+.idea/
+.vscode/
