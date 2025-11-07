@@ -20,7 +20,7 @@ print(f"Saving figures in: {output_dir}")
 df = pd.read_csv(csv_path)
 print(f"Loaded data from: {csv_path}")
 print(f"Columns: {list(df.columns)}")
-print(f"Total records: {len(df)}")
+print(f"Total records shown: {len(df)}")
 
 plt.figure(figsize=(8, 6))
 plt.scatter(df["Cache Size (GB)"], df["Service Time Saved Ratio"], color="steelblue", alpha=0.7)
