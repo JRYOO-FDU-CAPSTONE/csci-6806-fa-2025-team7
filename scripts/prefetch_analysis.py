@@ -67,21 +67,26 @@ labels = [r["policy"] for r in rows]
 hr_vals = [r["FlashCacheHitRate"] for r in rows]
 
 plt.figure()
-plt.title("Prefetch Policies — Flash Cache Hit Rate")
-plt.ylabel("Hit Rate")
-plt.xlabel("Policy")
+plt.title("Flash Cache Hit Rate by Prefetch Policy", fontsize=14)
+plt.ylabel("Hit Rate", fontsize=12)
+plt.xlabel("Policy", fontsize=12)
 plt.bar(labels, hr_vals)
+for i, v in enumerate(hr_vals):
+    plt.text(i, v + 0.01, f"{v:.2f}", ha="center", fontsize=10)
 plt.tight_layout()
 plt.savefig(figdir/"prefetch_hit_rate.png", dpi=200)
 plt.close()
 
 # Bar chart: Flash Write Rate
 fw_vals = [r["FlashWriteRate"] for r in rows]
+
 plt.figure()
-plt.title("Prefetch Policies — Flash Write Rate")
-plt.ylabel("MB/s")
-plt.xlabel("Policy")
+plt.title("Flash Write Rate by Prefetch Policy", fontsize=14)
+plt.ylabel("Write Rate (MB/s)", fontsize=12)
+plt.xlabel("Policy", fontsize=12)
 plt.bar(labels, fw_vals)
+for i, v in enumerate(fw_vals):
+    plt.text(i, v + 0.5, f"{v:.2f}", ha="center", fontsize=10)
 plt.tight_layout()
 plt.savefig(figdir/"prefetch_flash_write_rate.png", dpi=200)
 plt.close()
