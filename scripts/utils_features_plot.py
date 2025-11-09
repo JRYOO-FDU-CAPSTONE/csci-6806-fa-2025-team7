@@ -1,65 +1,69 @@
+#!/usr/bin/env python3
 import os
+import argparse
 import pandas as pd
 import matplotlib.pyplot as plt
 
-csv_file = "runs/example/rejectx/Region1/legacy_access_summary.csv"
-figures_dir = "runs/example/rejectx/Region1/figures"
-os.makedirs(figures_dir, exist_ok=True)
+def generate_policy_figures(csv_path):
+    plt.rcParams.update({
+        "font.family": "Times New Roman",
+        "font.size": 10,
+        "axes.titlesize": 10,
+        "axes.labelsize": 10,
+        "xtick.labelsize": 10,
+        "ytick.labelsize": 10,
+        "legend.fontsize": 10
+    })
 
-df = pd.read_csv(csv_file)
-print("✅ Columns in CSV:", df.columns.tolist())
+    df = pd.read_csv(csv_path)
+    df.columns = [c.strip() for c in df.columns]
 
-plt.rcParams.update({
-    "font.size": 13,
-    "axes.labelweight": "bold",
-    "axes.titlesize": 15,
-    "axes.titleweight": "bold",
-})
+    repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+    fig_dir = os.path.join(repo_root, "runs", "example", "rejectx")
+    os.makedirs(fig_dir, exist_ok=True)
 
-# === 1️⃣ Top 10 Keys by Access Count ===
-top_keys = df.sort_values("access_count", ascending=False).head(10)
-plt.figure(figsize=(8, 6))
-plt.bar(top_keys["key"].astype(str), top_keys["access_count"], color="skyblue")
-plt.xlabel("Key", fontsize=12, fontweight="bold")
-plt.ylabel("Access Count", fontsize=12, fontweight="bold")
-plt.title("Top 10 Keys by Access Count", fontsize=15, fontweight="bold")
-plt.xticks(rotation=45, ha="right")
-plt.tight_layout()
-plt.savefig(os.path.join(figures_dir, "utils_top10_access_count.png"))
-plt.close()
-
-# === 2️⃣ Access Count vs Average Block Size ===
-plt.figure(figsize=(8, 6))
-plt.scatter(df["access_count"], df["avg_block_size"], alpha=0.6, color="orange", edgecolor="black")
-plt.xlabel("Access Count", fontsize=12, fontweight="bold")
-plt.ylabel("Average Block Size (bytes)", fontsize=12, fontweight="bold")
-plt.title("Access Count vs Average Block Size", fontsize=15, fontweight="bold")
-plt.grid(True)
-plt.tight_layout()
-plt.savefig(os.path.join(figures_dir, "utils_access_count_vs_block_size.png"))
-plt.close()
-
-# === 3️⃣ Histogram of Average Block Sizes ===
-plt.figure(figsize=(8, 6))
-plt.hist(df["avg_block_size"], bins=40, color="purple", alpha=0.7)
-plt.xlabel("Average Block Size (bytes)", fontsize=12, fontweight="bold")
-plt.ylabel("Frequency", fontsize=12, fontweight="bold")
-plt.title("Distribution of Average Block Sizes", fontsize=15, fontweight="bold")
-plt.grid(True)
-plt.tight_layout()
-plt.savefig(os.path.join(figures_dir, "utils_block_size_distribution.png"))
-plt.close()
-
-# === 4️⃣ Accesses Over Time (if timestamps are usable) ===
-if "avg_timestamp" in df.columns:
     plt.figure(figsize=(8, 6))
-    plt.plot(df["avg_timestamp"], df["access_count"], color="green", alpha=0.6)
-    plt.xlabel("Average Timestamp", fontsize=12, fontweight="bold")
-    plt.ylabel("Access Count", fontsize=12, fontweight="bold")
-    plt.title("Access Frequency Over Time", fontsize=15, fontweight="bold")
-    plt.grid(True)
+    plt.scatter(df["Target Cache Size"], df["Service Time Saved Ratio"],
+                color="orange", alpha=0.8, edgecolor="black")
+    plt.title("Service Time Saved Ratio vs Target Cache Size", fontweight="bold")
+    plt.xlabel("Target Cache Size (GB)", fontweight="bold")
+    plt.ylabel("Service Time Saved Ratio", fontweight="bold")
+    plt.grid(True, linestyle="--", alpha=0.5)
     plt.tight_layout()
-    plt.savefig(os.path.join(figures_dir, "utils_access_over_time.png"))
-    plt.close()
+    plt.savefig(os.path.join(fig_dir, "service_time_saved_vs_cache_size.png"), dpi=300)
 
-print(f"✅ All figures saved to: {figures_dir}")
+    plt.figure(figsize=(8, 6))
+    plt.plot(df["Target Cache Size"], df["IOPSSavedRatio"],
+             marker="o", color="green", alpha=0.8)
+    plt.title("IOPS Saved Ratio vs Target Cache Size", fontweight="bold")
+    plt.xlabel("Target Cache Size (GB)", fontweight="bold")
+    plt.ylabel("IOPS Saved Ratio", fontweight="bold")
+    plt.grid(True, linestyle="--", alpha=0.5)
+    plt.tight_layout()
+    plt.savefig(os.path.join(fig_dir, "iops_saved_vs_cache_size.png"), dpi=300)
+
+    plt.figure(figsize=(8, 6))
+    plt.bar(df["Target Cache Size"], df["Mean Time In System (s)"],
+            color="purple", alpha=0.8)
+    plt.title("Mean Time In System vs Target Cache Size", fontweight="bold")
+    plt.xlabel("Target Cache Size (GB)", fontweight="bold")
+    plt.ylabel("Mean Time In System (s)", fontweight="bold")
+    plt.tight_layout()
+    plt.savefig(os.path.join(fig_dir, "mean_time_vs_cache_size.png"), dpi=300)
+
+    plt.figure(figsize=(8, 6))
+    plt.bar(df["Target Cache Size"], df["Write Rate (MB/s)"],
+            color="skyblue", alpha=0.8)
+    plt.title("Write Rate vs Target Cache Size", fontweight="bold")
+    plt.xlabel("Target Cache Size (GB)", fontweight="bold")
+    plt.ylabel("Write Rate (MB/s)", fontweight="bold")
+    plt.tight_layout()
+    plt.savefig(os.path.join(fig_dir, "write_rate_vs_cache_size.png"), dpi=300)
+
+    print(f"\n✅ Figures saved in: {fig_dir}")
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--input", "-i", required=True)
+    args = parser.parse_args()
+    generate_policy_figures(args.input)
