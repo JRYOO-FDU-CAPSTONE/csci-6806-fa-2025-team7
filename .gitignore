@@ -18,6 +18,7 @@ logs/
 venv/
 env/
 *.env
+baleen-env/
 
 # ---- Ignore system / editor files ----
 .DS_Store
