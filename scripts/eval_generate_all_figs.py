@@ -9,8 +9,7 @@ def main():
 
     out_dir = Path("figures")
     out_dir.mkdir(parents=True, exist_ok=True)
-
-    # Use row index as a simple x-axis (each row = one experiment/config/region)
+    
     x = range(len(df))
 
     # ---------- Figure 3: DT across experiments ----------
