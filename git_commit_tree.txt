@@ -1,0 +1,45 @@
+*   fa4fb44 (HEAD -> main, origin/main, DHirapara_MemoryTest) Merge pull request #7 from JRYOO-FDU-CAPSTONE/dev by Divyesh Hirapara
+|\  
+| * b56ec31 fix: update README.md file
+| *   b7bc5f3 Merge pull request #6 from JRYOO-FDU-CAPSTONE/DHirapara_MemoryTest by Pujan-Shah
+| |\  
+| | * 99db1ed (origin/DHirapara_MemoryTest) created python file to generate figures
+| | * ca5e861 Make a shell file to run the test for memory
+| |/  
+| *   9de5a44 (origin/dev, dev) Merge pull request #5 from JRYOO-FDU-CAPSTONE/FMotawala_utils By Divyesh Hirapara
+| |\  
+| | * 68cd4be made changes to figure labels
+| | * 662d207 added .py file to generate figures
+| | * d03b4a9 added utilities policy shell file
+| |/  
+| *   442cf49 Merge pull request #3 from JRYOO-FDU-CAPSTONE/NOnifade_prefetch
+| |\  
+| | * a0df8e9 prefetch: improve figure readability (labels + fontsize)
+| | * 4580acc prefetch: add analysis script and figures (hit rate, flash write rate)
+| | * 2426311 prefetch: add prefetch policy experiment script
+| |/  
+| *   3e6cbd8 Merge pull request #2 from JRYOO-FDU-CAPSTONE/PShah_eviction
+| |\  
+| | * 1d4828e Bug fixed
+| | * e09a81b Created a py file for generate the figures from the experiment
+| | * 7f669fe Make a shell file to run the experiment
+| |/  
+| *   1470978 Merge pull request #1 from JRYOO-FDU-CAPSTONE/KPatel_caching
+| |\  
+| | * ea3c604 Fix the size and labeling issue of the figure
+| | * 3c47836 Make a python file to generate figures from the policy data
+| | * b2f6b2f created the shell file for the caching policy
+| |/  
+| *   8479e4b Merge branch 'dev' of https://github.com/JRYOO-FDU-CAPSTONE/csci-6806-fa-2025-team7 into dev
+| |\  
+| |/  
+|/|   
+* | c1cf276 Feat: Initial Commit
+ /  
+* 72c04bb (origin/DHirapara_addmission_policy, DHirapara_addmission_policy) fix: increase the font size of the figures
+* 71c7b10 feat: Created a python code to plot the outputs
+* b9b4998 feat: Created a shell file for the small simulation
+* da02f11 Add scripts folder with placeholder
+* d3d0e41 Add .gitignore to exclude tmp/, data, and venv folders
+* caaab4e Remove tmp folder
+* dc6314e Feat: Initial Commit
